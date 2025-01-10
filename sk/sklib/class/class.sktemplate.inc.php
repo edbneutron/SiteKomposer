@@ -8,7 +8,7 @@
 ** Last changed.: 16/08/2002
 ** Last change..: 
 ***************************************/
-require_once(CLASS_PATH."template_class/class.template.inc");
+require_once(CLASS_PATH."template_class/class.template.inc.php");
 require_once(CLASS_PATH."cache/class.RHTemplateAdaptor.php");
 require_once(CLASS_PATH."cache/class.CachedTemplate.php");
 

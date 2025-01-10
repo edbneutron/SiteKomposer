@@ -140,7 +140,7 @@
 
 /***************************************
 ** Title........: Template class
-** Filename.....: class.template.inc
+** Filename.....: class.template.inc.php
 ** Author.......: Richard Heyes
 ** Version......: 1.12
 ** Notes........:

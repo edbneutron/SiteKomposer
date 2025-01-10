@@ -20,9 +20,9 @@
 	** Function to load a template into
 	** the class.
 	***************************************/
-		function load_file($file_id, $filename){
-			$this->files[$file_id] = fread($fp = fopen($filename, 'r'), filesize($filename));
-			fclose($fp);
+		public function load_file(string $file_id, string $filename): void
+		{
+			$this->files[$file_id] = file_get_contents($filename);
 		}
 
 
@@ -30,7 +30,8 @@
 	** Function to load a template into
 	** the class.
 	***************************************/
-		function set_identifiers($start, $end){
+		public function set_identifiers(string $start, string $end): void
+		{
 			$this->start = $start;
 			$this->end = $end;
 		}
@@ -40,23 +41,28 @@
 	** register() method, for going through
 	** arays and extracting the values.
 	***************************************/
-		function traverse_array($file_id, $array){
-			while(list(,$value) = each($array)){
-				if(is_array($value)) $this->traverse_array($file_id, $value);
-				else $this->var_names[$file_id][] = $value;
+		private function traverse_array(string $file_id, array $array): void
+		{
+			foreach($array as $value){
+				if(is_array($value)){
+					$this->traverse_array($file_id, $value);
+				}elseif($value != ''){
+					$this->var_names[$file_id][] = $value;
+				}
 			}
 		}
 
 	/***************************************
 	** Function to register a variable(s).
 	***************************************/
-		function register($file_id, $var_name){
+		public function register(string $file_id, array|string $var_name): void
+		{
 			if(is_array($var_name)){
 				$this->traverse_array($file_id, $var_name);
 			}elseif($var_name != ''){
-				if(is_long(strpos($var_name, ',')) == TRUE){
+				if(strpos($var_name, ',') !== false){
 					$var_name = explode(',', $var_name);
-					for(reset($var_name); $current = current($var_name); next($var_name)) $this->var_names[$file_id][] = trim($current);
+					foreach($var_name as $current) $this->var_names[$file_id][] = trim($current);
 				}else{
 					$this->var_names[$file_id][] = $var_name;
 				}
@@ -67,11 +73,11 @@
 	** Function to include another file.
 	** eg. A header/footer.
 	***************************************/
-		function include_file($file_id, $filename){
-                    $tplfile=RES_PATH.'tpl/page/'.$filename;
+		public function include_file(string $file_id, string $filename): void
+		{
+			$tplfile=RES_PATH.'tpl/page/'.$filename;
 			if(file_exists($tplfile)){
-				$include = fread($fp = fopen($tplfile, 'r'), filesize($tplfile));
-				fclose($fp);
+				$include = file_get_contents($tplfile);
 			}else $include = '[ERROR: "'.$filename.'" does not exist.]';
 
 			$tag = substr($this->files[$file_id], strpos(strtolower($this->files[$file_id]), '<include filename="'.$filename.'">'), strlen('<include filename="'.$filename.'">'));
@@ -84,28 +90,27 @@
 	** now checks for include tags and if
 	** necessary calls include_file()
 	***************************************/
-		function parse($file_id){
+		public function parse(string $file_id): void
+		{
 			$file_ids = explode(',', $file_id);
-			for(reset($file_ids); $file_id = trim(current($file_ids)); next($file_ids)){
-				while(is_long($pos = strpos(strtolower($this->files[$file_id]), '<include filename="'))){
-					$pos += 19;
+			foreach($file_ids as $file_id){
+				while(strpos(strtolower($this->files[$file_id]), '<include filename="') !== false){
+					$pos = strpos(strtolower($this->files[$file_id]), '<include filename="')+19;
 					$endpos = strpos($this->files[$file_id], '">', $pos);
 					$filename = substr($this->files[$file_id], $pos, $endpos-$pos);
 					$this->include_file($file_id, $filename);
 				}
 
 				if(isset($this->var_names[$file_id]) AND count($this->var_names[$file_id]) > 0){
-					for($i=0; $i<count($this->var_names[$file_id]); $i++){
-						$temp_var = $this->var_names[$file_id][$i];
-
-						if(is_long(strpos($this->files[$file_id], $this->start.$temp_var.$this->end))){
+					foreach($this->var_names[$file_id] as $temp_var){
+						if(strpos($this->files[$file_id], $this->start.$temp_var.$this->end) !== false){
 							global $$temp_var;
 							$this->files[$file_id] = str_replace($this->start.$temp_var.$this->end, $$temp_var, $this->files[$file_id]);
 
-						}elseif(is_long(strpos($this->files[$file_id], $this->start.$temp_var.'()'.$this->end))){
+						}elseif(strpos($this->files[$file_id], $this->start.$temp_var.'()'.$this->end) !== false){
 							global $$temp_var;
 							$arguments = array();
-							for($i=0; $i<count($$temp_var); $i++) $arguments[] = ${$temp_var}[$i];
+							foreach($$temp_var as $i => $value) $arguments[] = $value;
 							if(count($arguments) > 0) $arguments = '"'.implode('", "', $arguments).'"'; else $arguments = '';
 							eval('$output = '.$temp_var.'('.$arguments.');');
 							$this->files[$file_id] = str_replace($this->start.$temp_var.'()'.$this->end, $output, $this->files[$file_id]);
@@ -162,11 +167,11 @@
 			if($loop_code != ''){
 				$new_code = '';
 				$field_names = array();
-				for($i=0; $i<mysql_num_fields($$result_name); $i++) $field_names[] = mysql_field_name($$result_name,$i);
-				while($row_data = mysql_fetch_array($$result_name, MYSQL_ASSOC)){
+				for($i=0; $i<mysqli_num_fields($$result_name); $i++) $field_names[] = mysqli_fetch_field_direct($$result_name, $i)->name;
+				while($row_data = mysqli_fetch_array($$result_name, MYSQLI_ASSOC)){
 					$temp_code = $loop_code;
-					for($i=0; $i<count($field_names); $i++){
-						$temp_code = str_replace($this->start.$field_names[$i].$this->end, $row_data[$field_names[$i]], $temp_code);
+					foreach($field_names as $field_name){
+						$temp_code = str_replace($this->start.$field_name.$this->end, $row_data[$field_name], $temp_code);
 					}
 					$new_code.= $temp_code;
 				}
@@ -178,6 +183,8 @@
 	** Function for parsing a Postgres result
 	** set.
 	***************************************/
+
+	/*
 		function parse_pgsql($file_id, $result_name){
 			global $$result_name;
 			$loop_code = '';
@@ -204,31 +211,34 @@
 				$this->files[$file_id] = str_replace($start_tag.$loop_code.$end_tag, $new_code, $this->files[$file_id]);
 			}
 		}
+*/
 
         /***************************************
         ** Function looking for if blocks
-        ** added by Stephan Lüderitz
+        ** added by Stephan Lï¿½deritz
         ***************************************/
-               function parse_if($file_id, $array_name){
+        public function parse_if($file_id, $array_name): void {
 
-                   $var_names = explode(',', $array_name);
+                   $var_names = array_map('trim', explode(',', $array_name));
 
-                   for($i=0; $i<count($var_names); $i++){
+                   foreach ($var_names as $var_name) {
                         $if_code	= '';
-                        $start_pos	= strpos(strtolower($this->files[$file_id]), '<if name="'.strtolower($var_names[$i]).'">') + strlen('<if name="'.strtolower($var_names[$i]).'">');
-                        $end_pos	= strpos(strtolower($this->files[$file_id]), '</if name="'.strtolower($var_names[$i]).'">');
+                        $start_pos	= strpos(strtolower($this->files[$file_id]), '<if name="'.strtolower($var_name).'">');
+                        if ($start_pos !== false) {
+                            $end_pos	= strpos(strtolower($this->files[$file_id]), '</if name="'.strtolower($var_name).'">', $start_pos);
+                            $if_code	= substr($this->files[$file_id], $start_pos + strlen('<if name="'.strtolower($var_name).'">'), $end_pos - $start_pos);
+                            $start_tag	= substr($this->files[$file_id], $start_pos, strlen('<if name="'.strtolower($var_name).'">'));
+                            $end_tag	= substr($this->files[$file_id], $end_pos, strlen('</if name="'.strtolower($var_name).'">'));
 
-                        $if_code	= substr($this->files[$file_id], $start_pos, $end_pos-$start_pos);
-                        $start_tag	= substr($this->files[$file_id], strpos(strtolower($this->files[$file_id]), '<if name="'.strtolower($var_names[$i]).'">'),strlen('<if name="'.strtolower($var_names[$i]).'">'));
-                        $end_tag	= substr($this->files[$file_id], strpos(strtolower($this->files[$file_id]), '</if name="'.strtolower($var_names[$i]).'">'),strlen('</if name="'.strtolower($var_names[$i]).'">'));
-
-                        $new_code = '';
-                        if($if_code != ''){
-                                global ${$var_names[$i]};
-                                if(@${$var_names[$i]})
+                            $new_code = '';
+                            if ($if_code !== '') {
+                                global ${$var_name};
+                                if (@${$var_name}) {
                                     $new_code = $if_code;
+                                }
 
                                 $this->files[$file_id] = str_replace($start_tag.$if_code.$end_tag, $new_code, $this->files[$file_id]);
+                            }
                         }
                     }
                 }
@@ -237,11 +247,13 @@
 	** Function for printing the resulting
 	** file(s).
 	***************************************/
-		function print_file($file_id){
-			if(is_long(strpos($file_id, ',')) == TRUE){
-				$file_id = explode(',', $file_id);
-				for(reset($file_id); $current = current($file_id); next($file_id)) echo $this->files[trim($current)];
-			}else{
+		public function print_file($file_id): void {
+			if (strpos($file_id, ',') !== false) {
+				$file_id = array_map('trim', explode(',', $file_id));
+				foreach ($file_id as $current) {
+					echo $this->files[$current];
+				}
+			} else {
 				echo $this->files[$file_id];
 			}
 		}
@@ -250,12 +262,14 @@
 	** Function for returning the resulting
 	** file(s).
 	***************************************/
-		function return_file($file_id){
+		function return_file($file_id): string{
 			$ret = '';
-			if(is_long(strpos($file_id, ',')) == TRUE){
+			if (strpos($file_id, ',') !== false) {
 				$file_id = explode(',', $file_id);
-				for(reset($file_id); $current = current($file_id); next($file_id)) $ret .= $this->files[trim($current)];
-			}else{
+				foreach ($file_id as $current) {
+					$ret .= $this->files[trim($current)];
+				}
+			} else {
 				$ret .= $this->files[$file_id];
 			}
 			return $ret;
@@ -266,7 +280,7 @@
 	** the file. This function added by
 	** Bruce Christensen.
 	***************************************/
-		function pprint($file_id, $replacements = ''){
+		function pprint($file_id, $replacements = ''): void{
 			$this->register($file_id, $replacements);
 			$this->parse($file_id);
 			$this->print_file($file_id);
@@ -277,7 +291,7 @@
 	** the file's contents. Function added
 	** by Bruce Christensen.
 	***************************************/
-		function pget($file_id, $replacements = ''){
+		function pget($file_id, $replacements = ''): string{
 			$this->register($file_id, $replacements);
 			$this->parse($file_id);
 			return $this->return_file($file_id);
@@ -287,7 +301,7 @@
 	** Loads a file, parses it, and prints it.
 	** This function added by Bruce Christensen.
 	***************************************/
-		function pprint_file($filename, $replacements = ''){
+		function pprint_file($filename, $replacements = ''): void{
 			for($file_id=1; isset($this->files[$file_id]); $file_id++);
 			$this->load_file($file_id, $filename);
 			$this->pprint($file_id, $replacements);
@@ -307,3 +321,4 @@
 
 	} // End of class
 ?>
+

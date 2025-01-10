@@ -26,14 +26,17 @@ $password = 'ullidb';
 $database = 'd0136a20';
 $host     = 'localhost';
  
-mysql_connect($host, $username, $password);
-mysql_select_db($database);
+$mysqli = new mysqli($host, $username, $password, $database);
  
-$rs_tables = mysql_query(" SHOW TABLES ") or die(mysql_error());
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+ 
+$result = $mysqli->query(" SHOW TABLES ");
  
 print '<pre>';
-while ($row_tables = mysql_fetch_row($rs_tables)) {
-    $table = mysql_real_escape_string($row_tables[0]);
+while ($row_tables = $result->fetch_row()) {
+    $table = $mysqli->real_escape_string($row_tables[0]);
     
     // Alter table collation
     // ALTER TABLE `account` DEFAULT CHARACTER SET utf8
@@ -41,8 +44,8 @@ while ($row_tables = mysql_fetch_row($rs_tables)) {
         echo("ALTER TABLE `$table` DEFAULT CHARACTER SET $character_set;\r\n");
     }
  
-    $rs = mysql_query(" SHOW FULL FIELDS FROM `$table` ") or die(mysql_error());
-    while ($row=mysql_fetch_assoc($rs)) {
+    $result = $mysqli->query(" SHOW FULL FIELDS FROM `$table` ");
+    while ($row = $result->fetch_assoc()) {
         
         if ($row['Collation']!=$convert_from)
             continue;
@@ -58,7 +61,7 @@ while ($row_tables = mysql_fetch_row($rs_tables)) {
         if ($row['Default']=='NULL') {
             $default = " DEFAULT NULL";
         } else if ($row['Default']!='') {
-            $default = " DEFAULT '".mysql_real_escape_string($row['Default'])."'";
+            $default = " DEFAULT '". $mysqli->real_escape_string($row['Default'])."'";
         } else {
             $default = '';
         }
@@ -66,7 +69,7 @@ while ($row_tables = mysql_fetch_row($rs_tables)) {
         // Alter field collation:
         // ALTER TABLE `account` CHANGE `email` `email` VARCHAR( 50 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL
         if ($show_alter_field) {
-            $field = mysql_real_escape_string($row['Field']);
+            $field = $mysqli->real_escape_string($row['Field']);
             echo "ALTER TABLE `$table` CHANGE `$field` `$field` $row[Type] CHARACTER SET $character_set COLLATE $convert_to $nullable $default; \r\n";
         }
     }
