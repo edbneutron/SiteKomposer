@@ -1,0 +1,65 @@
+<gallery galleryname="Gallery name" layout="4" popuplink="1" smoothscroll="1" picbgcolor="0xffffff" bgcolor="0xffffff" pnlcolor="0xeeeeee" thumbloadbarcolor="0x666666" captionbgcolor="0xffffff" captioncolor="0x333333" titlecolor="0xffffff" pagebtncolor="0xffffff" animpagebtns="1" showcaption="1" showselected="1" selectioncolor="0xff0000" roundrect="0" roundpix="4" showprintbtn="1" loadthumbsatonce="1" thumbloaddelay="150" drawshadows="1" shadowwidth="4" shadowcolor="0x00000" shadowalpha="15" imgtransition="2">
+	<image thumb="images/image2-thumb.jpg">images/image2.jpg</image>
+		<captiontext>image 1 sample text</captiontext>
+		<imageurl popupwidth="460" popupheight="425">images/image2.jpg</imageurl>
+	<image thumb="images/image1-thumb.jpg">images/image1.jpg</image>
+		<captiontext>image 2 sample text</captiontext>
+		<imageurl popupwidth="420" popupheight="420">images/image1.jpg</imageurl>
+	<image thumb="images/image3-thumb.jpg">images/image3.jpg</image>
+		<captiontext>image 3 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image3.jpg</imageurl>
+	<image thumb="images/image4-thumb.jpg">images/image4.jpg</image>
+		<captiontext>image 4 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image4.jpg</imageurl>
+	<image thumb="images/image5-thumb.jpg">images/image5.jpg</image>
+		<captiontext>image 5 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image5.jpg</imageurl>
+	<image thumb="images/image1-thumb.jpg">images/image1.jpg</image>
+		<captiontext>image 6 sample text</captiontext>
+		<imageurl popupwidth="420" popupheight="420">images/image1.jpg</imageurl>
+	<image thumb="images/image2-thumb.jpg">images/image2.jpg</image>
+		<captiontext>image 7 sample text</captiontext>
+		<imageurl popupwidth="460" popupheight="425">images/image2.jpg</imageurl>
+	<image thumb="images/image3-thumb.jpg">images/image3.jpg</image>
+		<captiontext>image 8 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image3.jpg</imageurl>
+	<image thumb="images/image4-thumb.jpg">images/image4.jpg</image>
+		<captiontext>image 9 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image4.jpg</imageurl>
+	<image thumb="images/image5-thumb.jpg">images/image5.jpg</image>
+		<captiontext>image 10 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image5.jpg</imageurl>
+	<image thumb="images/image1-thumb.jpg">images/image1.jpg</image>
+		<captiontext>image 11 sample text</captiontext>
+		<imageurl popupwidth="420" popupheight="420">images/image1.jpg</imageurl>
+	<image thumb="images/image2-thumb.jpg">images/image2.jpg</image>
+		<captiontext>image 12 sample text</captiontext>
+		<imageurl popupwidth="460" popupheight="425">images/image2.jpg</imageurl>
+	<image thumb="images/image3-thumb.jpg">images/image3.jpg</image>
+		<captiontext>image 13 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image3.jpg</imageurl>
+	<image thumb="images/image4-thumb.jpg">images/image4.jpg</image>
+		<captiontext>image 14 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image4.jpg</imageurl>
+	<image thumb="images/image5-thumb.jpg">images/image5.jpg</image>
+		<captiontext>image 15 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image5.jpg</imageurl>
+	<image thumb="images/image1-thumb.jpg">images/image1.jpg</image>
+		<captiontext>image 16 sample text</captiontext>
+		<imageurl popupwidth="420" popupheight="420">images/image1.jpg</imageurl>
+	<image thumb="images/image2-thumb.jpg">images/image2.jpg</image>
+		<captiontext>image 17 sample text</captiontext>
+		<imageurl popupwidth="460" popupheight="425">images/image2.jpg</imageurl>
+	<image thumb="images/image3-thumb.jpg">images/image3.jpg</image>
+		<captiontext>image 18 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image3.jpg</imageurl>
+	<image thumb="images/image4-thumb.jpg">images/image4.jpg</image>
+		<captiontext>image 19 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image4.jpg</imageurl>
+	<image thumb="images/image5-thumb.jpg">images/image5.jpg</image>
+		<captiontext>image 20 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image5.jpg</imageurl>
+	<image thumb="images/image5-thumb.jpg">images/image5.jpg</image>
+		<captiontext>image 21 sample text</captiontext>
+		<imageurl popupwidth="200" popupheight="200">images/image5.jpg</imageurl>
+</gallery>

@@ -1,0 +1,345 @@
+
+--------------------------------------
+PHP Layers Menu 2.2.0 (Oct 13th, 2002)
+--------------------------------------
+
+lib/layersmenu-noscript.inc.php3, new_tree_menu():
+fixed the detection of the https protocol.
+Thanks to Danny Jovica <danny@e-pc.com.au> for his bug report.
+
+----------------------------------------
+PHP Layers Menu 2.2beta (Sep 29th, 2002)
+UNSTABLE BRANCH
+----------------------------------------
+
+Moved the browser detection from lib/layersmenu.js to the body
+of the HTML code returned by the PHP parsing.
+This change has been needed to avoid JavaScript errors that
+on Netscape 4 often occurred loading the page for the first time
+(a reload was needed to make things work).
+To this end, the browser detection code has been put in a new file,
+i.e. lib/layersmenu-browser_detection.js , which is included
+by the template lib/layersmenu-header.ijs , and a minor change
+to the make_header() method of the LayersMenu class has been needed
+in lib/layersmenu.inc.php3 .
+
+Some minor changes to provide compliance with XHTML 1.0 Transitional.
+Now PHP Layers Menu is compliant at least with the following DTDs:
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+A minor "cosmetic" change in the setX() function in lib/layersmenu.js
+
+A minor change in the yaresizeHandler() function in lib/layersmenu.js
+
+Changed all the Tree Menu images to use all 20x18 images and provide
+a better look, especially on Konqueror.
+
+--------------------------------------
+PHP Layers Menu 2.1.0 (Sep 21st, 2002)
+UNSTABLE BRANCH
+--------------------------------------
+
+Now the vertical coordinates of links are obtained simply
+as DOM properties.
+Hence it is no more needed to estimate their coordinates
+through the detection of the position of the mouse pointer,
+and it is no more necessary to compute and set reasonable
+coordinates for the layers (this was needed for browsers
+not able to detect the mouse pointer position).
+Detection of the position of the mouse pointer is still employed,
+but only for Netscape 4, which does not seem able to return
+the vertical coordinate of links relying on the DOM tree.
+Many thanks to Iacopo Spalletti for this very fine hint,
+which strongly improves the behaviour of this menu system.
+
+A clean up in lib/layersmenu.js for the code handling the
+document.onmousedown and the document.onclick events.
+
+Changed the default value of $ordinate_margin, that now is 12
+and no more 20.
+
+Updated the README and some comments in the code.
+Minor corrections to the README.
+
+--------------------------------------
+PHP Layers Menu 2.0.0 (Sep 15th, 2002)
+--------------------------------------
+
+Functions setwidth() and setheight(): the bug fix provided in version
+2.0beta3 causes problems to IE 5.5 and IE 6.0, and Mozilla does not
+need it in that functions (it needs it only in functions setleft()
+and settop()); hence the same code used in version 2.0beta2 has been
+restored for that functions.
+
+The bug fix provided in version 2.0beta3 also prevents the menu system
+from working on Opera 5; extended functions setleft() and settop()
+to handle Opera 5 as a distinct case and use the non-fixed code for it.
+
+Some extensions to lib/layersmenu.js and minor changes to the templates
+to obtain also with IE 6.0 a correct behaviour with the long DTD for
+HTML 4.01 Transitional.
+
+----------------------------------------
+PHP Layers Menu 2.0beta3 (Sep 1st, 2002)
+UNSTABLE BRANCH
+----------------------------------------
+
+A bug fix in lib/layersmenu.js (functions setleft(), settop(),
+setwidth(), setheight()); now the menu system works also on Mozilla
+also with the long DTD for HTML 4.01 Transitional, i.e. with
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+Many thanks to Iacopo Spalletti for this fine bug fix.
+
+Changed the Tree Menu images according to Debian Woody's Gmc and Galeon.
+
+-----------------------------------------
+PHP Layers Menu 2.0beta2 (Aug 11th, 2002)
+UNSTABLE BRANCH
+-----------------------------------------
+
+Fixed some typos.
+
+-----------------------------------------
+PHP Layers Menu 2.0beta (July 28th, 2002)
+UNSTABLE BRANCH
+-----------------------------------------
+
+Commented the code of PHP classes according to the PHPDocumentor syntax.
+
+Added the set_separator() method to allow to change the separator,
+that by default is still "|".
+
+Added the possibility of commenting out a line in the menu structure
+inserting a "#" as the first character of the line, in analogy with
+shell scripts.
+Thanks to Normando Marcolongo <normando@lugroma.org> for his suggestion.
+
+Some other minor undocumented changes.
+
+Added an extended class to provide menu solutions not requiring
+JavaScript, i.e. Tree Menu (based on the Tree Menu 1.1 package
+by Bjorge Dijkstra), Plain Menu, and Horizontal Plain Menu.
+
+Slightly changed the menu structure format: added a separator between
+dots and text to allow text of links to begin with one or more dots;
+now the menu structure format is
+[dots]|[text]|[link]|[title]|[icon]|[target]
+(obviously, the separator can be different from "|", which is the default,
+if the set_separator() method is used).
+More precisely, now only the number of chars before the first separator
+is counted, hence it is also possible to use chars different from dots,
+even though I discommend to do this and I suggest to continue considering
+a format that foresees usage of dots.
+
+--------------------------------------
+PHP Layers Menu 1.1.7 (May 26th, 2002)
+UNSTABLE BRANCH
+--------------------------------------
+
+Reorganization and extension of code, data structures, variables names,
+and templates.
+Clean up of the style sheet.
+
+Added some variables to the class, in particular, dirroot and libdir.
+Thanks to Claudio Bandaloukas <rdfm@lugroma.org>
+for his bug report.
+
+Added titles to links and support for icons;
+this implies a format change for the menu structure, that now is
+[dots][text]|[link]|[title]|[icon]|[target]
+
+Now horizontal menus cells can have arbitrary widths.
+This allows to save space in the browser window, with menu layers
+still correctly placed.
+
+--------------------------------------
+PHP Layers Menu 1.1.6 (May 19th, 2002)
+UNSTABLE BRANCH
+--------------------------------------
+
+Renamed the class as LayersMenu; renamed methods and added some useful
+new methods.
+
+Added the possibility of reading each menu structure from a string
+instead of from a file; this is useful if, e.g., the menu structure
+is returned by some code that retrieves informations from a data base.
+
+Eliminated inclusion of template.inc.php3 from layersmenu.inc.php3;
+now template.inc.php3 has to be included by the script that employs
+the LayersMenu class.
+
+Moved some files in suited sub directories and added methods to choose
+paths and to choose templates for each menu; changed the demo script
+to make more evident this change.
+
+Eliminated $abscissa_stepx5, which was not used.
+
+Added the JavaScript variable IE, to indicate *each version* of IE
+(>= 4.0); now the IE4 variable indicates *only* version 4 of IE.
+Some minor changes to adapt the code to this choice.
+
+Added an elementary error handling.
+
+Other undocumented changes and improvements.
+
+--------------------------------------
+PHP Layers Menu 1.1.5 (May 12th, 2002)
+UNSTABLE BRANCH
+--------------------------------------
+
+Added handling of window resizing.
+
+Better handling of horizontal autorepositioning of layers.
+
+Some little changes to validate as HTML 4.01 Transitional.
+
+Added methods to allow a more clean use of the menu system
+in pages using templating.
+
+Other undocumented improvements and changes.
+
+-------------------------------------
+PHP Layers Menu 1.1.4 (May 5th, 2002)
+UNSTABLE BRANCH
+-------------------------------------
+
+Added the LICENSE file and changed the license to include the option
+of later versions of the GNU LGPL.
+
+Added detection of layers widths (for browsers able to detect them),
+and then set the position of each layer just in correspondence
+of the "father" layer.
+
+Added detection of the document width and of width and scroll
+of the browsing window, and then implemented horizontal
+and vertical "autowrap" of menu layers.
+
+Added explicit detection of Konqueror, as Konqueror 3 implements
+useful features but sets IE4 = 1 ... AAAAAAAAAARGHHH!!!
+
+Extended Opera detection, as Opera 6 provides useful features
+not available or completely unreliable in Opera 5.
+
+Some code cleanups in layermenu.js
+
+Provided methods makeheader() and makefooter() beside printheader()
+and printfooter(), to allow the use of the menu system in pages
+using templating (now $this->header and $this->footer can be used).
+
+A minor change to README to avoid problems with e-mail addresses
+inside the "pre" tag.
+
+Updated README and corrected some typos.
+
+Minor changes to the demo menu structure files to evidence new features.
+
+Minor undocumented changes.
+
+----------------------------------------
+PHP Layers Menu 1.1.3.1 (Apr 14th, 2002)
+UNSTABLE BRANCH
+----------------------------------------
+
+Restored popUp calls in leaf node links, they were needed!!!
+Thanks to Hanno Saks <hanno@lv.parnu.ee> for his bug report.
+Eliminated a spurious tag.
+Affected file: layersmenu.inc.php3
+
+--------------------------------------
+PHP Layers Menu 1.1.3 (Feb 24th, 2002)
+UNSTABLE BRANCH
+--------------------------------------
+
+A better and more reliable choice of the layer identifying
+the first level menu both for horizontal and vertical menus.
+Now the layer is defined inside a td tag to avoid problems
+with menus not left aligned.
+New workarounds to cope with IE's oddities related to this choice.
+Centered the menu hormenu1 in the demo to make more evident
+the effects of the change.
+
+Eliminated the no more useful moveLayerY() call in links belonging
+to the first level menu of horizontal menus; consequently added
+the call of moveLayers() in popUp() when needed (it results to be needed
+if the first submenu popped up belongs to a horizontal menu).
+
+Eliminated from the templates the tags identifying layers,
+to avoid accidental removal of tags essential for the menus operation;
+now such tags are inserted through the PHP code.
+
+Some speed enhancements obtained minimizing the number of function calls
+in moveLayers() and removing unuseful popUp calls in leaf nodes links
+(such enhancements can be noted mainly on Mozilla and IE4).
+
+Renamed layersmenu-footer.ihtml as layersmenu-submenu.ihtml
+Renamed the printfirstleveltable() method as printfirstlevelmenu()
+
+Minor undocumented changes.
+
+--------------------------------------
+PHP Layers Menu 1.1.2 (Feb 17th, 2002)
+UNSTABLE BRANCH
+--------------------------------------
+
+Extended the set of functions provided in layersmenu.js.
+Now the menu system is able to detect itself the position of menus.
+Hence it is no more needed to estimate and provide the corresponding
+coordinates when defining a menu, and the phplm() and newmenu() calls
+are simpler.
+Thanks to this ability, a better support is provided for Konqueror.
+Support for Netscape 4: version >= 4.07 is required now
+(version 4.05 simply crashes).
+Delayed the positioning of hidden layers after the page loading
+to preserve support of Mozilla < 0.9 and Netscape 6.0; this also
+provides a better support for Opera.
+Now setwidth() is no more used in layersmenu.inc.php3
+(it resulted to be unnecessary); some changes have been made
+to layersmenu-footer.ihtml; these changes achieve a better support
+for Netscape 6.0 and a better look of layers for the other browsers.
+
+Some changes to provide correct working of the package also if
+in php.ini it is set
+error_reporting = E_ALL
+("error_reporting = 8" in PHP3)
+Thanks to Tomas J. Fulopp <Tomi@uia.be> - <tomas.fulopp@skynet.be>
+for his bug report.
+
+-------------------------------------
+PHP Layers Menu 1.1.1 (Feb 3rd, 2002)
+UNSTABLE BRANCH
+-------------------------------------
+
+Fixed a bug in the detection of non leaf nodes.
+On version 1.1.0, the bug can be evidenced deleting
+the last line of layersmenu.txt and realizing that the link
+"Find Files" does not pop up the corresponding layer, 
+that contains the link "RPM Find". 
+In practice, in version 1.1.0, if the last entry of the menu
+structure file is the only child of the previous entry,
+it is not possible to pop up the corresponding layer.
+Thanks to Michele Conte <ceu@libero.it>
+for his bug report.
+
+Renamed phplayersmenu.inc.php3 as layersmenu.inc.php3
+
+Documentation fixes.
+
+Minor undocumented changes.
+
+--------------------------------------
+PHP Layers Menu 1.1.0 (Jan 13th, 2002)
+UNSTABLE BRANCH
+--------------------------------------
+
+Object Oriented rewrite of the package.
+Now an arbitrary number of vertical and horizontal menus
+can be used on the same page, and the package's use should be easier.
+

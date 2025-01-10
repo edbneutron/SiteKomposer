@@ -1,0 +1,45 @@
+Folgende Anfrage wurde von www.reiturlaub.at versendet:
+
+
+Name................: {vorname_required} {nachname_required}
+Email address.......: {email}
+
+Adresse.............: {adresse}
+PLZ / Ort / Land....: {plz} / {ort} / {land}
+
+Telefon.............: {telefon}
+Fax.................: {telefax}
+
+Ankunft.................: {ankunft_tag}-{ankunft_monat}-{ankunft_jahr}
+bis.................: {abreise_tag}-{abreise_monat}-{abreise_jahr}
+
+Kröller:
+-----------------------------------------------------------------------------------------------------------
+{anzahl_kroeller_doppelzimmer} Kröller Doppelzimmer  für {anzahl_personen_kroeller_doppelzimmer} Personen 
+{anzahl_kroeller_familiensuite} Kröller - Familiensuite für  {anzahl_erw_kroeller_familiensuite} Erwachsene, für {anzahl_kind_kroell_familiensuite} Kinder 
+-----------------------------------------------------------------------------------------------------------
+
+Almhof:
+-----------------------------------------------------------------------------------------------------------
+{anzahl_almhof_appartementXXL}	Appartement XXL	für  {anzahl_almhof_appartementXXL_erwachsene} Erwachsene, für {anzahl_almhof_appartementXXL_kinder} Kinder 
+{anzahl_almhof_appartementXL}	Appartement XL	für  {anzahl_almhof_appartementXL_erwachsene} Erwachsene, für {anzahl_almhof_appartementXL_kinder} Kinder 
+{anzahl_almhof_appartementL}	Appartement L	für  {anzahl_almhof_appartementL_erwachsene} Erwachsene, für {anzahl_almhof_appartementL_kinder} Kinder 
+{anzahl_almhof_juniorsuite}	Juniorsuite	für  {anzahl_almhof_juniorsuite_erwachsene} Erwachsene, für {anzahl_almhof_juniorsuite_kinder} Kinder 
+{anzahl_almhof_appartementMedium}	Appartement M	für  {anzahl_almhof_appartementMedium_erwachsene} Erwachsene, für {anzahl_almhof_appartementMedium_kinder} Kinder 
+{anzahl_almhof_familienzimmer}	Familienzimmer	für  {anzahl_almhof_familienz_erwachsene} Erwachsene, für {anzahl_almhof_familienz_kinder} Kinder 
+{anzahl_almhof_erkerpanorama}	Erker Panoramaz.	für  {anzahl_almhof_erkerpanorama_erwachsene} Erwachsene, für {anzahl_almhof_erkerpanorama_kinder} Kinder 
+{anzahl_almhof_doppelzimmer}	Doppelzimmer	für  {anzahl_personen_almhof_doppelzimmer} Personen
+-----------------------------------------------------------------------------------------------------------
+
+Angebote:
+-----------------------------------------------------------------------------------------------------------
+Angebot Kinder  {angebot_Kinder}
+Angebot Reiten  {angebot_Reiten}
+Angebot Wellness  {angebot_Wellness}
+Angebot Wandern  {angebot_Wandern}
+Angebot Schifahren  {angebot_Schifahren}
+-----------------------------------------------------------------------------------------------------------
+
+Sonstige Bemerkungen:    
+-----------------------------------------------------------------------------------------------------------
+ {sonstiges}

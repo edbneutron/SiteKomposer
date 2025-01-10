@@ -1,0 +1,13 @@
+An/Abmeldung zum Newsletter:
+
+
+
+Anmeldung...........: {bestellen}
+Name................: {name}
+Vorname.............: {vname}
+eMail...............: {email_required}
+
+
+
+
+

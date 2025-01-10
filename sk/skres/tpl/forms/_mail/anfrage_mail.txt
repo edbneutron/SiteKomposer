@@ -1,0 +1,20 @@
+Folgende Anfrage wurde von www.grabul.com versendet:
+
+
+Name................: {vorname_required} {nachname_required}
+Email Addresse.......: {email_required}
+
+Adresse.............: {strasse}
+PLZ / Ort / Land....: {plz} / {ort} / {land}
+
+Telefon.............: {Telefon}
+
+
+AnfrageText:
+-----------------------------------------------------------------------------------------------------------
+{AnfrageText}
+-----------------------------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------------------
+creative-concept 2004 - www.eee.at

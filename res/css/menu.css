@@ -1,0 +1,74 @@
+/* CSS Document */
+
+
+
+#mainmenu {
+	display: block;
+	padding: 0px 0px 0px 75px;
+	margin: 1px 0px 0px 0px;
+	font-family: "Trebuchet MS", "Times New Roman", Times;
+	width: 118px;
+	float: left;
+	text-align: left;
+}
+
+#mainmenu ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style-type: none;
+}
+#mainmenu li {
+	margin: 0px 0px 2px 0px;
+	display: list-item;
+	line-height:14px;
+	float: none;
+	position: relative;
+	color: #6F6355;
+	font-size: 14px;
+	font-weight: bold;
+	list-style-type: none;
+}
+
+#mainmenu a {
+	color: #6F6355;
+	font-weight: bold;
+	padding: 1px 0px 0px 15px;
+	text-decoration:none;
+}
+
+#mainmenu a:HOVER {
+	text-decoration:underline;
+}
+
+#mainmenu #nolink{
+	 padding: 1px 0px 0px 9px;
+}
+#mainmenu li a.selected,#mainmenu li.submenu a.selected{
+	color: #6F6355;
+	background: url(../img/menu_welle.gif) no-repeat;
+	background-position: -9px 6px;
+	
+}
+#mainmenu .submenu li {
+	display: block;
+	color: #6F6355;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0px 0px 0px 5px;
+}
+
+#mainmenu .submenu li a{
+   display: block;
+	color: #6F6355;
+	font-size: 11px;
+	font-weight: bold;
+
+}
+
+
+/* fix the position for 2nd level submenus. first make sure no horizontal scrollbars are visible on initial page load... */
+#mainmenu li li ul {
+    top: 0;
+    left: 0;
+}

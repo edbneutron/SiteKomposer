@@ -1,0 +1,21 @@
+Folgende Anfrage wurde von Ihnen an dezent Gebäudereinigung versendet:
+
+Name................: {anrede} {vorname_required} {nachname_required}
+Email Addresse.......: {email}
+
+Adresse.............: {strasse_required}
+PLZ / Ort...........: {plz_required} / {ort_required}
+
+Telefon.............: {telefon}
+
+Ich möchte..........: {angebot}
+
+Kontaktart..........: {kontaktart}
+
+
+
+Bemerkungen:
+-----------------------------------------------------------------------------------------------------------
+{bemerkungen}
+-----------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------

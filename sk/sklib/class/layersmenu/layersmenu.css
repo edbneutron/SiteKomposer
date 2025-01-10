@@ -1,0 +1,101 @@
+body	{
+	color: #000000;
+	background-color: #ffffff;
+	margin: 0;
+}
+
+a:link	{
+	color: #004400;
+}
+
+a:visited	{
+	color: #726461;
+}
+
+a:hover	{
+	color: #ff0000;
+	background-color: #ffdead;
+}
+
+a:active	{
+	color: #ff0000;
+}
+
+h1	{
+	font-family: Helvetica, sans-serif;
+	font-size: 16pt;
+	font-weight: bold;
+	color: #cc0000;
+}
+
+h2	{
+	font-family: Helvetica, sans-serif;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.h1	{
+	font-family: Helvetica, sans-serif;
+	font-size: 16pt;
+	font-weight: bold;
+	color: #cc0000;
+}
+
+.h1bar	{
+	font-family: Helvetica, sans-serif;
+	font-size: 16pt;
+	font-weight: bold;
+	color: #cc0000;
+}
+
+.normal	{
+	font-family: Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+.horbartop	{
+	font-family: Helvetica, sans-serif;
+	font-size: 10pt;
+	background-color: #ffe2b1;
+}
+
+.verbarleft	{
+	font-family: Helvetica, sans-serif;
+	font-size: 10pt;
+	background-color: #f6f2e6;
+}
+
+.nav	{
+	background-color: #ffffee;
+	font-family: Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+.navdark	{
+	background-color: #726461;
+}
+
+.navblack	{
+	background-color: #000000;
+}
+
+.navgreen	{
+	background-color: #839983;
+}
+
+.navdarkgreen	{
+	background-color: #839983;
+}
+
+.navred	{
+	background-color: #aa5859;
+}
+
+.navorange	{
+	background-color: #df9500;
+}
+
+.preformatted	{
+	font-family: courier;
+	font-size: 10pt;
+}

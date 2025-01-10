@@ -1,0 +1,90 @@
+<!-- Gallery Template --> 
+<style type="text/css">
+<!--
+table.mgallery {
+	margin-bottom:10px;
+}
+td.mgalleryitem {
+	vertical-align:middle;
+}
+td.mgalleryitem td {
+	font-size: 9px;
+	text-align:center;
+	vertical-align:top;
+}
+
+td.mgallerytitle {
+    font-size: 12px;
+    font-weight: bold;
+    color: #575757;
+    letter-spacing: 0.5em;
+    text-align: center;
+    padding: 2px;
+}
+td.mgallerydescr {
+    font-size: 11px;
+    padding: 2px;
+    color: #666666;
+}
+.rt {
+background:url(res/img/shadow_rt.gif) top right no-repeat;
+margin:0;
+padding:0;
+}
+ 
+.lt {
+background:url(res/img/shadow_lt1.gif) top left no-repeat;
+margin:0;
+padding:0;
+}
+ 
+.rb {
+background:url(res/img/shadow_rb.gif) bottom right no-repeat;
+margin:0;
+padding:0;
+}
+ 
+.lb {
+background:url(res/img/shadow_lb.gif) no-repeat bottom left;
+margin:0;
+padding:0;
+}
+#inhalt {
+margin:0;
+padding:1px 5px 2px 2px;
+}
+#inhalt[id] {
+margin:0;
+padding:1px 5px 6px 2px;
+}
+
+.skimage{
+margin:0px;
+}
+-->
+</style>
+<table  border="0" cellpadding="0" cellspacing="8" class="mgallery" align="center">
+<tr> 
+ <td height="1" colspan="{gallery_columns}" class="mgallerytitle">{gallery_title}</td>
+</tr>
+<tr> 
+ <td height="1" colspan="{gallery_columns}" class="mgallerydescr">{gallery_descr}</td>
+</tr>
+<tr>
+<LOOP NAME="mgallery_items">
+<td class="mgalleryitem" align="center">
+<div class="rt">
+<div class="lt">
+<div class="rb">
+<div class="lb">
+<div id="inhalt">
+{object}
+</div>
+</div>
+</div>
+</div>
+</div></td>{row}
+</LOOP NAME="mgallery_items">
+</tr>
+{edit_buttons}
+</table>

@@ -1,0 +1,150 @@
+.bench {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-color: #66CCCC;
+	border: 1px solid #666666;
+	padding: 3px;
+	margin: 1px;
+
+
+
+
+
+
+
+
+
+}
+.query {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-color: #CC9900;
+	margin: 1px 1px 1px 8px;
+	padding: 2px;
+	border: 1px solid #999999;
+
+}
+.debug1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-color: #00CC66;
+	padding: 1px;
+	border: 1px solid #999999;
+	margin: 1px;
+
+
+
+
+}
+.debugt {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	background-color: #FFCC00;
+	border: 1px solid #666666;
+	padding: 3px;
+	font-weight: bold;
+
+}
+.bench2 {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+	background-color: #66FFCC;
+	border: 1px solid #666666;
+	padding: 2px;
+	margin: 1px 1px 1px 8px;
+}
+.debug2 {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-color: #99CC66;
+	padding: 1px;
+	border: 1px solid #999999;
+	margin: 1px 1px 1px 8px;
+}
+.debug3 {
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+	background-color: #009966;
+	padding: 1px;
+	border: 1px solid #999999;
+	margin: 1px 1px 1px 16px;
+}
+.error1 {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-color: #FF0033;
+	border: 1px solid #666666;
+	padding: 3px;
+	margin: 1px;
+}
+.error2 {
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-color: #FF7575;
+	border: 1px solid #666666;
+	padding: 3px;
+	margin: 1px 1px 1px 8px;
+}
+.error3 {
+
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+	background-color: #FF9B9B;
+	border: 1px solid #666666;
+	padding: 3px;
+	margin: 1px 1px 1px 16px;
+}
+.bench3 {
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+	background-color: #DAFAEB;
+	border: 1px solid #666666;
+	padding: 2px;
+	margin: 1px 1px 1px 16px;
+}
+.debug4 {
+
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #FFFFFF;
+	background-color: #006633;
+	padding: 1px;
+	border: 1px solid #999999;
+	margin: 1px 1px 1px 24px;
+}
+.bench4 {
+
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #666666;
+	background-color: #DAFAEB;
+	border: 1px solid #666666;
+	padding: 2px;
+	margin: 1px 1px 1px 24px;
+}

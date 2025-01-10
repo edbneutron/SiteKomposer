@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+<LOOP NAME="mgallery_items">
+	<Index mylabel="{title} - {artist}" mydata="{site_url}content/sound/{file}">
+  </Index>
+</LOOP NAME="mgallery_items">
+</database>

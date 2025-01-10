@@ -1,0 +1,142 @@
+textarea  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-style : normal;
+	border: 1px solid #333333;
+	margin: 2px;
+}
+.textareasmall {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	border: 1px solid #333333;
+	margin: 2px;
+}
+input  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9px;
+}
+
+input.checkbox  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9px;
+
+}
+input.text  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	border: 1px solid #333333;
+	margin: 2px;
+}
+input.password  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	border: 1px solid #333333;
+	margin: 2px;
+}
+input.button  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9px;
+}
+
+input.image  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9px;
+}
+input.small  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9px;
+	border: 1px solid #333333;
+}
+select  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	border: 1px solid #333333;
+}
+select.small  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9px;
+	border: 1px solid #333333;
+}
+.submenuadd  {
+	font-family : Arial,Helvetica,SansSerif;
+	padding : 1;
+	color : #000000;
+	background-color : #3399FF;
+}
+
+body.admin {  font-family: Arial, Helvetica, sans-serif; font-size: 10px}
+
+a.tree {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+a.tree:HOVER {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+a.tree:VISITED {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.smallfont,.small{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+a.smallblack, a.smallblack:VISITED{
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	font-style : normal;
+	font-weight : normal;
+	color : #000000;
+	text-decoration : none;
+}
+
+a.smallblack:HOVER{
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	font-style : normal;
+	font-weight : normal;
+	color : #DE6500;
+	text-decoration : none;
+}
+a.obj {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color : #000000;
+	text-decoration : none;
+}
+a.obj:HOVER {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color : #FF6600;
+	text-decoration : underline;
+}
+a.obj:VISITED {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.dotbox {
+	border: 1px dotted #999999;
+}
+TABLE.thingrid ,TD.thingrid{
+	background : #EEEEEE;
+	border : 1px solid #BBBBBB;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+
+}
+td.graybox {
+	border: 1px solid #666666;
+	padding: 2px;
+
+}
+.editback {
+	border: 1px dotted #000000;
+	white-space: normal;
+	background-color: inherit;
+}
+.editfoot {
+	background-color: #CCCCCC;
+	border: 1px dotted #333333;
+}

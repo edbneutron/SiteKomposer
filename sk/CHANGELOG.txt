@@ -1,0 +1,164 @@
+Site-Komposer Changelog
+-----------------------------------------------------------------------------------------------------------------------------
+9.Jan.2025:
+-fixed some bugs
+-upgrade to support of PHP7.4
+-adodb layer upgraded
+-PHP8 upgrade up for debate, because only 2 systems still running
+
+26.Apr.2005:
+-integrated download function redirector for file downloads
+-download-counter
+-filesize display
+-changed class skobject (update without lastmod&user_id for download counter)
+-New-Object Form is now sperated into groups
+-had to change object_types db layout (group to objgroup)
+
+25.Apr.2005:
+-started module evaluation for poll function.
+
+19.Apr.2005:
+-finished  streamingplayer FLASH integration
+
+18.Apr.2005:
+-started with MP3-Player for media-gallery. Very Cool!
+-fixed some bugs with file permission on server environments where you have different users for execute wrapped system calls (very complicated...)
+-fixed resize bugs in image.php
+
+17.Apr.2005:
+-fixed layout bug for form_bottom (Yes, again IE :-(....
+-started test for layer-forms to replace popups (not sure if this is a good idea but interesting, hmmm.......)
+
+15.Apr.2005:
+-new design for form_top
+-included auto-resize-function for forms
+-fixed autoresize bug for text & text_image
+-fixed some layout bugs in Admin_modules: groups,sites,users
+-fixed some IE layout bugs...    I LOVE this Browser!!..............NOT!!!
+-COOL FEATURES!:
+-added xml output for gallery_objects
+-added Flash/XML gallery "SimpleViewer"
+-added Flash/XML gallery "FastGallery"
+
+14.Apr.2005:
+-removed mail form from /sk/res
+-created skformmail.php and mail action in skpage.php
+-fixed bugs in class.sknavtree.php in tree_delete
+-added delete of whole site tree
+
+13.Apr.2005:
+-finished buttons
+-fixed path setting in sk_news_article_edit.php
+
+12.Apr.2005:
+-new buttons created
+
+7.Apr.2005:
+-edit.php relocates to current-site, first page
+
+6.Apr.2005:
+-finishing new AdminMenu AAARRGGHHH!!!! (had to change to old layout for layers, hours and hours for nothing!!!!)
+-"Utilities-Section" in Admin-menu
+-new function DEBUG_window() for displaying Debug-Info in a popup with compressed html output
+-new function html-compress in skutil
+-image space includes 2 pixel as option in image window
+-deleted /sk/res/js
+-deleted /sk/res/tpl/page
+-deleted modules/sk/images
+-deleted /skres/tpl/forms/
+-fixed debug Output when not form-window
+removed last /sk/res/img entries
+
+5.Apr.2005:
+-bugfixing AdminMenu in webanalyse & Newsletter
+-making of new AdminMenu
+
+4.Apr.2005:
+-form_top & bottom ->template
+-changed some paths to skres_url (scripts,images)
+-link.php
+-index.php
+-moved forms out of /sk/res
+
+29.Mar.2005:
+-sk_clean takes care of images for "text_image"-objects
+
+27:Mar.2005:
+-started move of files out of /sk/res    **This is the beginning of a new version, maybe 1.2??
+-removed ie_edit and NS_edit - replaced by htmlarea
+
+25.Mar.2005:
+-fixed bug in sk_nav_tree-edit.php
+-fixed image resize bug object:text_image
+-fixed update routine for class sk_object (included content_id)
+
+11.Mar.2005:
+-subtree delete function finished
+-Image resize function added
+-changed sk_news_article-edit to htmlarea
+
+10.Mar.2005:
+-sknavtree delete function in class deletes whole subtree
+-sk_nav_tree-list.php changed to new class
+
+25.Feb.2005:
+-started new design and template based design for administration
+
+23.Feb.2005:
+-added function for link-replacement (or re-linking)
+-moved display-objects includes to sklib/
+
+18.Feb.2005:
+-added new http-get Object with start earch/end search (now you can integrate any Web-page content somewhere on the net YES!)
+
+17.Feb.2005:
+-added Function: you can choose the page-parent of a page in menu-editor
+-fixed frameset bug from phpMyAdmin/index.php
+
+16.Feb.2005:
+- fixed colspan-bug in treemenu
+
+15.Feb.2005:
+- fixed resize bug in admin-menu
+- erased unused function mainmenu() in class adminmenu
+
+14.Feb.2005:
+- finished Site-Copy feature without link-change(will not be in near future)
+
+9.Feb.2005:
+- dev of Site-Copy feature
+- minor bugfix in class.sknavtree.inc.php
+
+8.Feb.2005:
+- corrected bug in webanalyse script
+- development start of Site-Copy feature
+- corrected layout of text-format treemenu
+
+2.Nov.2004:
+- execute wrapper through http_get for security(safe_mode)sites
+
+10.Okt.2004:
+-class.skgroup.inc.php
+  add permission array
+
+30.Jul.2004
+various fixes
+- admin-logon switches to first website allowed
+- editable layout changed from table to div-Tag so images align like on live-site
+- chooseable image-library (netpbm  or gd)
+
+old:
+formhandler-bug when submitting "text_image" objects
+HTML-Area Integration
+Newsletter "phpMyNewsletter"
+Webanalyse-Modul Integration
+skuser login-log
+skuser db change
+Kopie in /sk erstellt
+Pfad-System umgestaltet und getestet
+link objekt für content_area
+
+
+.....older change log entries are lost i´m afraid......maybe they were eaten by some bugs  ;-)
+
+....development started in 2001......

@@ -1,0 +1,46 @@
+28/01/01 - Version 2.03 released.       Changed all \r\n to \n. Begrudgingly.
+
+05/11/00 - Version 2.02 released.       Fixed bug when using multiple config files
+                                        and using invalid_email redirect. Added 
+                                        two variables for templates, {time} and
+                                        {date}. Added possibility for multiple
+						    servernames.
+
+??/??/00 - Version 2.01 released.       Oops. Missed this one.
+
+01/07/00 - Version 2.00 released.       Added config files, bad ip/host checking,
+                                        extra variables for templates, external
+                                        error pages. All config variables are now
+                                        available to the form (except security
+                                        related ones). Major code redesign, hence
+                                        the major version increment.
+
+25/06/00 - Version 1.65 released.       Enabled template based emails as well as
+                                        thank you page.
+
+12/06/00 - Version 1.61 released.       Fixed minor bug in template system.
+
+11/06/00 - Version 1.6 released.        Added template feature for thank you page.
+                                        Added check_email variable.
+
+28/05/00 - Version 1.55 released.       Fixed bug that presented itself under php4.
+
+16/04/00 - Version 1.5 released.        Changed mime_mail.class to html_mime_mail.class,
+                                        an extension of mime_mail.class. File uploads
+                                        now work correctly under win32. Added support
+                                        for file uploads under Php4.
+
+15/04/00 - Version 1.4 released.        Another bug fix. This time for the security
+                                        feature.
+
+09/04/00 - Version 1.3 released.        My god. I wonder how this script ever worked.
+                                        Massive code clean up as well as numerous bug
+                                        fixes. Also added the debug feature, so that if
+                                        you're having trouble you can gain a clue as to
+                                        what's happening.
+
+14/01/00 - Version 1.2 released.        Removal of a few unnecessary bits.
+
+26/12/99 - Version 1.1 released.        Addition of file upload support.
+
+30/11/99 - Version 1.0 released.

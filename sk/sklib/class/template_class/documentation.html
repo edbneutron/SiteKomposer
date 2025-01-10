@@ -1,0 +1,656 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+        <TITLE>Template Class</TITLE>
+		<STYLE TYPE="text/css">
+		<!--
+
+		BODY {
+		      text-align: center;
+		     }
+		
+		H1 {
+		    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+		    font-size: 22pt;
+		    font-weight: normal;
+		    letter-spacing: 3pt;
+		    width: 75%;
+		   }
+		
+		H2 {
+		    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+		    font-size: 18pt;
+		    font-weight: normal;
+		    letter-spacing: 3pt;
+		   }
+		
+		P  {
+		    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+		    font-size: 10pt;
+		    font-weight: normal;
+		    letter-spacing: 1pt;
+		    line-height: 13pt;
+		   }
+		
+		LI {
+		    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+		    font-size: 10pt;
+		    font-weight: normal;
+		    letter-spacing: 2pt;
+		    line-height: 13pt;
+		   }
+		
+		DIV {
+		     width: 75%;
+		     margin-top: 20px;
+		     margin-bottom: 20px;
+		    }
+		
+		CODE {
+		      font-family: monospace;
+		      font-size: 10pt;
+		      font-weight: normal;
+		     }
+		
+		.center {
+		         text-align: center;
+		        }
+		
+		.nocenter {
+		           text-align: left;
+		          }
+		
+		.bold {
+		       font-weight: bold;
+		      }
+		
+		.padding {
+		          padding: 10px;
+		         }
+		
+		.background {
+		             color: #000000;
+		             background-color: #FF4A4A;
+		            }
+		
+		.background-light {
+		                   color: #000000;
+		                   background-color: #FF8484;
+		                  }
+		.border {
+		         border-style: solid;
+		         border-color: #000000;
+		         border-width: 2px;
+		        }
+
+		// -->
+		</STYLE>
+</HEAD>
+<BODY>
+
+<H1 CLASS="center background border">Template Class</H1>
+
+<DIV CLASS="background-light border">
+
+        <H2>Contents</H2>
+
+        <TABLE BORDER="0">
+                <TR>
+                        <TD>
+                                <UL>
+                                        <LI>Installation</LI>
+                                        <LI>Main Usage</LI>
+                                        <LI>Other functions</LI>
+                                        <LI>&lt;INCLUDE&gt; tag</LI>
+                                        <LI>Loop Code</LI>
+                                        <LI>Conditionals (&lt;IF&gt;)</LI>
+                                        <LI>Bugs</LI>
+                                        <LI>History</LI>
+                                        <LI>License</LI>
+                                </UL>
+                        </TD>
+                </TR>
+        </TABLE>
+
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>Installation</H2>
+
+        <P>
+                Simply bung the class file somewhere where your script can include() it,
+                and then include() it.
+        </P>
+
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>Main Usage</H2>
+
+        <P>
+                There are three main methods (functions) to the template engine, (engine hmmmm? sounds good).
+                There are of course other methods that can and indeed have to be accessed,
+                but these 3 are the real meat of the class.
+        </P>
+
+<!-- parse() -->
+
+        <P>
+                <CODE><B><I>void</I> parse(<I>string</I> file identifier)</B></CODE>:
+        </P>
+
+        <P>
+
+                    This inserts the values of all the variables that have been register()ed (see further down)
+                    into the template. Obviously the variable must be in the template. To parse multiple files in one
+                    call, the argument can be a comma seperated string of file ids.<BR>
+                    <B>05/08/2000</B> This function also processes any &lt;INCLUDE&gt; tags in the specified file (see
+                    section on includes).
+        </P>
+
+<!-- parse_loop() -->
+
+        <P>
+                <CODE><B><I>void</I> parse_loop(<I>string</I> file identifer, <I>string</I> array name)</B></CODE>:
+        </P>
+
+        <P>
+                    Note that the second argument is the array NAME! Not the array itself. The function takes an
+                    array (which has to be in the format described below) and substitutes the "loop code" (see later)
+                    for the data in the array. Difficult to describe, (at least, when half drunk) the format of the
+                    array is like so:
+        </P>
+
+        <PRE>
+                   +---------- This is the row number, starting at zero.
+                   |
+                   |      +--- This is the column name.
+                   |      |
+                   |      |
+            $array[0]['column_1']  Contains data for row 1, column 1.
+            $array[0]['column_2']  Contains data for row 1, column 2.
+            $array[0]['column_3']  Contains data for row 1, column 3.
+
+            $array[1]['column_1']  Contains data for row 2, column 1.
+            $array[1]['column_2']  Contains data for row 2, column 2.
+            $array[1]['column_3']  Contains data for row 2, column 3.
+        </PRE>
+
+        <P>
+                    See. Makes perfect sense. The column names should correspond to entries in the template file.
+                    Check the example scripts if you're still unsure.
+        </P>
+
+<!-- parse_sql() -->
+
+        <P>
+                <CODE><B><I>void</I> parse_sql(<I>string</I> file identifier, <I>string</I> result set name)</B></CODE>:
+        </P>
+
+        <P>
+                    Very similar to the above, but instead of using an array for the data, it uses a mysql result set.
+                    Again, pass the function the name of the result set, and not the result set itself, and as before it
+                    replaces the "loop code" (see later) with the data from the result set. The field names must
+                    correspond with what is in the template.
+        </P>
+
+<!-- parse_pgsql() -->
+
+        <P>
+                <CODE><B><I>void</I> parse_pgsql(<I>string</I> file identifier, <I>string</I> result set name)</B></CODE>:
+        </P>
+
+        <P>
+                Basically the above function but parses Postgres result sets instead of MySQL. This function was contributed
+                by Ovidiu Eftimie.
+        </P>
+
+        <P>
+                    <B>NB:</B> For the above three functions the array/result set variables should be lowercase.
+        </P>
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>Other functions</H2>
+
+<!-- load_file() -->
+
+        <P>
+                <CODE><B><I>void</I> load_file(<I>string</I> file identifier, <I>string</I> file name)</B></CODE>:
+        </P>
+
+        <P>
+                    This, (as you may well have guessed), simply loads a template file into the object so that we may
+                    use it. The file identifier is just that, and is what is used to refer to the file from now on, much
+                    like in FastTemplate. The file identifier is necessary so that multiple templates are possible.
+        </P>
+
+        <PRE>
+                $tpl = new template;
+
+                $tpl->load_file('header', 'header.html');
+                $tpl->load_file('main', 'your.template.html');
+                $tpl->load_file('footer', 'footer.html');
+
+                $tpl->register('header', 'title');
+                $tpl->register('main', 'var1, var2, var3');
+                $tpl->register('footer', 'credits');
+
+                $tpl->parse('header, main, footer')
+                $tpl->print_file('header, main, footer');
+        </PRE>
+
+<!-- set_identifiers() -->
+
+        <P>
+                <CODE><B><I>void</I> set_identifiers(<I>string</I> beginning, <I>string</I> end)</B></CODE>:
+        </P>
+
+        <P>
+                    Enables you to determine what identifies a "variable" in the template file. Defaults to "{" and "}",
+                    so in a template file {example} would be replaced with the contents of the variable $example. An example:
+        </P>
+
+        <PRE>
+        $tpl = new template;
+        $tpl->load_file('main', 'your.template.html');
+        $tpl->register('main', 'var1, var2, var3');
+        $tpl->set_identifiers('{{', '}}');
+        $tpl->parse('main')
+        $tpl->print_file('main');
+        </PRE>
+
+<!-- register() -->
+
+        <P>
+                <CODE><B><I>void</I> register(<I>string</I> file identifier, <I>mixed</I> variable names))</B></CODE>:
+        </P>
+
+        <P>
+                    Registers a variable so that later, the parse() function will insert it into the template file. The second
+                    arugment can be either a comma seperated string containing the variable <I>names</I> (not the variables themselves),
+                    or it can be an array containing variable names. If it is an array the variable names must be the values, and
+                    not the keys. The arrays can be associative, but it is still the values that are registered. Nested arrays will
+                    be traversed. For example, all the below register $var1, $var2 and $var3:
+        </P>
+
+        <UL>
+                <LI>$obj->register('id', 'var1, var2, var3');</LI>
+                <LI>$obj->register('id', array('var1', 'var2', 'var3'));</LI>
+                <LI>$obj->register('id', array('var1', array('var2', 'var3')));</LI>
+        </UL>
+
+        <P>
+                An example:
+        </P>
+
+        <PRE>
+        $tpl = new template;
+        $tpl->load_file('main', 'your.template.html');
+        $tpl->register('main', 'var1');
+        $tpl->register('main', array('var2', 'var3'));
+        $tpl->parse('main')
+        $tpl->print_file('main');
+        </PRE>
+
+<!-- print_file() -->
+
+        <P>
+                <CODE><B><I>void</I> print_file(<I>string</I> file identifer)</B></CODE>:
+        </P>
+
+        <P>
+                    After all processing is done, use this script to print the template. Multiple templates can be printed
+                    at once by comma seperating the identifiers. An example:
+        </P>
+
+        <PRE>
+        $tpl = new template;
+        $tpl->load_file('main', 'your.template.html');
+        $tpl->register('main', 'var1, var2, var3');
+        $tpl->parse('main')
+        $tpl->print_file('main');
+       </PRE>
+<!-- return_file() -->
+
+        <P>
+                <CODE><B><I>string</I> return_file(<I>string</I> file identifier)</B></CODE>:
+        </P>
+
+        <P>
+                    After all processing is done, use this script to return the html code that has been generated. Can be
+                    useful for post-processing or (for example) inserting the template into an email. Multiple templates
+                    can be returned at once by comma seperating the identifiers. An example:
+        </P>
+
+        <PRE>
+        $tpl = new template;
+        $tpl->load_file('main', 'your.template.html');
+        $tpl->register('main', 'var1, var2, var3');
+        $tpl->parse('main')
+        $output = $tpl->return_file('main');
+       </PRE>
+
+<!-- pprint() -->
+
+        <P>
+                <CODE><B><I>void</I> pprint(<I>string</I> file identifer [, <I>mixed</I> variable names])</B></CODE>:
+        </P>
+
+        <P>
+                This function acts as an alternative to calling register(), parse() and then print_file() and will call
+                all those functions for you. The second argument can be a string or an array, as with the register()
+                function and is passed directly to that function. This function was contributed by Bruce Christensen. An example:
+        </P>
+
+        <PRE>
+        $tpl = new template;
+        $tpl->load_file('main', 'your.template.html');
+        $tpl->pprint('main', 'var1, var2, var3');
+        </PRE>
+
+<!-- pget() -->
+
+        <P>
+                <CODE><B><I>void</I> pget(<I>string</I> file identifier [, <I>mixed</I> variable names])</B></CODE>:
+        </P>
+
+        <P>
+                This function acts as an alternative to calling register(), parse() and then return_file() and will call
+                all those functions for you. The second argument can be a string or an array, as with the register()
+                function and is passed directly to that function. This function was contributed by Bruce Christensen. An example:
+        </P>
+
+        <PRE>
+        $tpl = new template;
+        $tpl->load_file('main', 'your.template.html');
+        $output = $tpl->pget('main', 'var1, var2, var3');
+        </PRE>
+
+<!-- pprint_file() -->
+
+        <P>
+                <CODE><B><I>void</I> pprint_file(<I>string</I> filename [, <I>mixed</I> variable names])</B></CODE>:
+        </P>
+
+        <P>
+                This function acts as an alternative to calling load_file(), register(), parse() and then print_file()
+                and will call all those functions for you. When loading the file it will find a spare file_id, use it, and
+                unset() it when finished. The second argument can be a string or an array, as with the register() function
+                and is passed directly to that function. If you have loops to process, you should not use this function.
+                This function was contributed by Bruce Christensen. An example:
+        </P>
+
+        <PRE>
+        $tpl = new template;
+        $tpl->pprint_file('your.template.html', 'var1, var2, var3');
+        </PRE>
+
+<!-- pget_file() -->
+
+        <P>
+                <CODE><B><I>void</I> pprint_file(<I>string</I> filename [, <I>mixed</I> variable names])</B></CODE>:
+        </P>
+
+        <P>
+                This function acts as an alternative to calling load_file(), register(), parse() and then return_file()
+                and will call all those functions for you. When loading the file it will find a spare file_id, use it, but
+                will NOT unset() it when finished. The second argument can be a string or an array, as with the register()
+                function and is passed directly to that function. If you have loops to process, you should not use this
+                function. This function was contributed by Bruce Christensen. An example:
+        </P>
+
+        <PRE>
+        $tpl = new template;
+        $output = $tpl->pget_file('your.template.html', 'var1, var2, var3');
+        </PRE>
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>&lt;INCLUDE&gt; tag</H2>
+
+        <P>
+                The &lt;INCLUDE&gt; tag can make your life much easier by enabling you to include things like header/footer
+                files in your templates. An example is below:
+        </P>
+
+        <P>
+                &lt;INCLUDE FILENAME="templates/header.html"&gt;
+        </P>
+
+        <P>
+                The case of the tag and attribute name doesn't matter, but the spacing does. There must be precisely
+                one space between "include" and "filename" and no spaces either side of the equals sign or between the
+                last double quote and greater than sign. Basically stick to the above and you'll be fine. Obviously
+                the string inside the quotes is the filename, and must point to a valid file. If the file is not
+                found an error will be printed in its' place.
+        </P>
+
+        <P>
+                <B>IMPORTANT:</B> The path of the file to be included should be relative to the php script that runs the
+                template script stuff, and not the template with the tag in. Multiple include ttags can be in a
+                template, and even multiple include tags pointing to the same file.
+        </P>
+
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>Loop Code</H2>
+
+        <P>
+                What is loop code then? Loop code is the piece of code that gets repeated when parse_loop(), parse_sql() or parse_pgsql()
+                are run. It could be for example a table row in HTML, which gets repeated x number of times depending
+                on how many rows there are in the array or sql result set, (for the structure of the array, see the diagram further up).
+                Loop code has to be defined in a particular way:
+        </P>
+
+        <PRE>
+        &lt;LOOP NAME="your_name"&gt;
+                &lt;Code to be repeated&gt;
+        &lt;/LOOP NAME="your_name"&gt;
+        </PRE>
+
+        <P>
+                The beginning tag defines the start of the loop code, and the name is the name of the array or result set
+                it is assigned to. The ending tag simply signifies the end of the loop code. Here is an example of loop
+                code in a table:
+        </P>
+
+        <PRE>
+        &lt;TABLE BORDER="0" BGCOLOR="#000000"&gt;
+                &lt;TR&gt;
+                        &lt;TH BGCOLOR="#DDDDDD"&gt;Column 1&lt;/TH&gt;
+                        &lt;TH BGCOLOR="#DDDDDD"&gt;Column 2&lt;/TH&gt;
+                        &lt;TH BGCOLOR="#DDDDDD"&gt;Column 3&lt;/TH&gt;
+                &lt;/TR&gt;
+
+                &lt;LOOP NAME="table_rows"&gt;
+                &lt;TR&gt;
+                        &lt;TD BGCOLOR="#DDDDDD"&gt;{column_1}&lt;/TD&gt;
+                        &lt;TD BGCOLOR="#DDDDDD"&gt;{column_2}&lt;/TD&gt;
+                        &lt;TD BGCOLOR="#DDDDDD"&gt;{column_3}&lt;/TD&gt;
+                &lt;/TR&gt;
+                &lt;/LOOP NAME="table_rows"&gt;
+
+        &lt;/TABLE&gt;
+        </PRE>
+
+        <P>
+                Here, the table has the usual structure. First the header row is static. Then, the data row is loop code.
+                What will happen once this is parsed is that the loop code gets repeated once for every row in the array
+                or result set. The {column_1} etc will also be replaced with the appropriate data for that column. Also,
+                the loop tags will be removed. A good example of this is the complete-script.php script (which goes with
+                the complete-template.html template file). Compare the before and after and you should easily understand it.
+        </P>
+
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>Conditionals (&lt;IF&gt;)</H2>
+
+        <P>
+                Due to quite a few requests, I've added &lt;IF&gt; syntax. Personally I can't see the need for it, and haven't ever
+				needed it either at work or in my own scripts/apps. An example:
+        </P>
+
+        <PRE>
+        &lt;IF NAME="foo"&gt;
+            Some html code that gets printed if the variable $foo resolves to TRUE.
+            This means this variable could be a number of things, including 1,
+            a (non empty) string, an array (again, non empty) and TRUE.
+            Possibly others to.
+        &lt;/IF NAME="foo"&gt;
+        </PRE>
+
+        <P>
+                You can use this to only display certain blocks of code if a variable is set, or isset to TRUE, or whatever.
+				It can also be used to wrap around other bits of code, including loops and includes.
+        </P>
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>Performance</H2>
+
+        <P>
+                *** See History for updated performance info ***
+        </P>
+
+        <P>
+                Still with me? Good, as that's all the hard work done.<BR>
+                The performance of the engine (still sounds good...) is very good, primarily due to the fact that regular
+                expression functions (ereg, preg_match etc) are not used.
+        </P>
+
+        <P>
+                Compared against FastTemplate, my own
+                (admittedly quite basic) benchmarks came out consistently around 30% faster. This was done by taking
+                timestamps using microtime() just before instantiating the template object and just after printing the
+                results, doing a bit of jiggery-pokery® with the results and inserted into a db. The average of twenty
+                times was taken and then compared.
+        </P>
+
+        <P>
+                It also came out as 60% faster than another template routine, which
+                is not an object or function, simply an include file, but it's not publicly accessible so it doesn't
+                mean that much.
+        </P>
+
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>Bugs</H2>
+
+        <P>
+                Not bloody likely.
+        </P>
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>History</H2>
+
+		<P>
+				<B>14/07/2001  -  Version 1.4</B><BR>
+
+				Added conditional syntax and fixed a few bugs.
+		</P>
+
+        <P>
+                <B>13/08/2000  -  Version 1.3</B><BR>
+                Added five new functions:
+        </P>
+
+        <UL>
+                <LI>parse_pgsql()</LI>
+                <LI>pprint()</LI>
+                <LI>pget()</LI>
+                <LI>pprint_file()</LI>
+                <LI>pget_file()</LI>
+        </UL>
+
+        <P>
+                These new functions make the class very much more useful, accessible and easy to use. Also
+                made some minor alterations to existing functions, Eg. parse() can now accept a comma seperated
+                string of file_ids to parse multiple templates in one call.
+        </P>
+
+        <P>
+                <B>05/08/2000  -  Version 1.23</B><BR>
+                Added &lt;INCLUDE&gt; tag. So you can include other files in your template, eg. header/footer files.
+        </P>
+
+        <P>
+                <B>11/07/2000  -  Version 1.13</B><BR>
+                You can now have two loops with exactly the same loop code in one template file.
+        </P>
+
+        <P>
+                <B>25/06/2000  -  Version 1.12</B><BR>
+                Altered load_file() so it reads the file using fread() instead of file(). Marginally faster.
+        </P>
+
+        <P>
+                <B>04/06/2000  -  Version 1.1</B><BR>
+               Altered parse_loop and parse_sql so that they don't have to go through every line of the file
+               they're parsing. The complete example (single template) is now more than twice as fast,
+               (0.008 vs 0.017 on RHL 6.1, Apache 1.3.12, Php 4.0.0, P166, 32Mb).
+        </P>
+
+        <P>
+                <B>23/05/2000  -  Version 1.0</B><BR>
+                Initial release.
+        </P>
+</DIV>
+
+
+
+<DIV CLASS="nocenter padding background-light border">
+
+        <H2>License</H2>
+
+        <P>
+                Postcard-ware. If you use this utility then I'd appreciate a postcard from ya. :)<BR>
+                Otherwise, it's free, be grateful, don't whinge, and don't sue me if it screws your system.
+        </P>
+
+        <P CLASS="center" ALIGN="CENTER">
+                <A HREF="http://validator.w3.org/check/referer">
+                        <IMG SRC="http://validator.w3.org/images/vh40" BORDER="0" ALT="Valid HTML 4.0!" HEIGHT="31" WIDTH="88">
+                </A>
+
+                <A HREF="http://jigsaw.w3.org/css-validator/">
+                        <IMG SRC="http://jigsaw.w3.org/css-validator/images/vcss.gif" BORDER="0" ALT="Valid CSS 1.0">
+                </A>
+        </P>
+
+
+</DIV>
+
+</BODY>
+</HTML>

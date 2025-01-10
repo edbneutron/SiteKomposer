@@ -1,0 +1,123 @@
+<div id="menubarmenu1" style="position: {lposition}; left: {leftp}px; top: {topp}px; width: 85px; height: 0px; z-index: 8; visibility: visible;">
+ <div id="menubarmenu2" style="position: absolute; width: 85px; z-index: 8; visibility: {mbmv2};">
+              <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+               <td rowspan="2"><a name="drag" class="drag" style="cursor:move;" onMouseDown="MM_dragLayer('menubarmenu1','',0,0,62,16,true,false,-1,-1,-1,-1,false,false,0,'',false,'')"><img src="{imgurl}lm_title.gif" name="lm_title" border="0" height="17" width="64"></a></td>
+                  <td rowspan="2"><a href="javascript:;" onclick="MM_showHideLayers('menubarmenu2','','hide','menubar_layer','','show')"><img src="{imgurl}lm_button2.gif" name="lm_button" border="0" height="17" width="18"></a></td>
+               <td rowspan="2"><img name="lm_corner" src="{imgurl}lm_corner.gif" border="0" height="17" width="19"></td>
+               <td><img src="{imgurl}spacer.gif" border="0" height="14" width="1"></td>
+              </tr>
+              </table>
+</div> <!--menubarmenu2-->
+            
+<div id="menubar_layer" style="position: absolute; z-index: 8; visibility:{mbmv1};">
+            <table width="106" border="0" cellpadding="0" cellspacing="0" >
+             <tr>
+               <td width="64" rowspan="2"><a name="drag" class="drag" style="cursor:move;" onMouseDown="MM_dragLayer('menubarmenu1','',0,0,62,16,true,false,-1,-1,-1,-1,false,false,0,'',false,'')"><img src="{imgurl}lm_title.gif" name="lm_title" border="0" height="17" width="64"></a></td>
+                  <td width="18" rowspan="2"><a href="javascript:;" onclick="MM_showHideLayers('menubarmenu2','','show','menubar_layer','','hide')"><img src="{imgurl}lm_button.gif" name="lm_button" border="0" height="17" width="18"></a></td>
+               <td width="21" rowspan="2"><img name="lm_corner" src="{imgurl}lm_corner.gif" border="0" height="17" width="19"></td>
+               <td width="3"><img src="{imgurl}spacer.gif" border="0" height="14" width="1"></td>
+              </tr>
+    </table>
+              
+              
+              <!-- ************ Layers ****************** -->
+              <!-- Modules -->
+              <div id="menu_layer1" style="position: relative; z-index: 8;  display:{vis1};">
+          <table border="0" cellpadding="0" cellspacing="0" width="106" >
+              <tr>
+                <td width="81" align="center" background="{imgurl}lm_bg.gif" >
+                {modmenu}
+        <br>
+                <img src="{imgurl}spacer.gif" border="0" height="1" width="82">             </td>
+                <td rowspan="2" background="{imgurl}lm_r_bg.gif" valign="top" width="22" align="left">
+                <a href="javascript:;" id="admmenu" onclick="ChangeSrc('lm_module','{imgurl}lm_module_on.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_off.gif');changeDisplay('menu_layer1','inline','menu_layer2','none','menu_layer3','none','menu_layer4','none');"><img src="{imgurl}lm_module_on.gif" id="lm_module" name="lm_module" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_on.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_off.gif');changeDisplay('menu_layer1','none','menu_layer2','inline','menu_layer3','none','menu_layer4','none');"><img src="{imgurl}lm_cms_off.gif" id="lm_cms" name="lm_cms" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_on.gif');changeDisplay('menu_layer1','none','menu_layer2','none','menu_layer3','inline','menu_layer4','none')"><img src="{imgurl}lm_system_off.gif" id="lm_system" name="lm_system" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_on.gif');changeDisplay('menu_layer1','none','menu_layer2','none','menu_layer3','none','menu_layer4','inline')"><img src="{imgurl}lm_util_off.gif" id="lm_util" name="lm_util" border="0" height="65" width="19"></a>
+                </td>
+                <td width="3"><img src="{imgurl}spacer.gif" border="0" height="2" width="1"></td>
+              </tr>
+              
+               <tr>
+                <td align="center" background="{imgurl}lm_bg.gif"><a class="smallblack" target="_top" href="{skurl}modules/sk/admin/">Hauptmenue</a></td>
+                <td><img src="{imgurl}spacer.gif" border="0" height="15" width="1"></td>
+              </tr>
+              <tr> 
+                <td colspan="2"><img src="{imgurl}lm_bottom.gif" border="0" height="6" width="101"></td>
+                <td><img src="{imgurl}spacer.gif" border="0" height="1" width="1"></td>
+              </tr>
+    </table>
+            </div><!-- //Modules -->
+            <!-- CMS -->
+            <div id="menu_layer2" style="position: relative; z-index: 8; display:{vis2};">
+        <table border="0" cellpadding="0" cellspacing="0" width="106" >
+              <tr>
+                <td width="81" align="center" background="{imgurl}lm_bg.gif" >
+              {cmsmenu}
+          <br>
+                <img src="{imgurl}spacer.gif" border="0" height="1" width="82">             </td>
+                <td rowspan="2" background="{imgurl}lm_r_bg.gif" valign="top" width="22" align="left">
+                <a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_on.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_off.gif');changeDisplay('menu_layer1','inline','menu_layer2','none','menu_layer3','none','menu_layer4','none');"><img src="{imgurl}lm_module_off.gif" id="lm_module" name="lm_module" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_on.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_off.gif');changeDisplay('menu_layer1','none','menu_layer2','inline','menu_layer3','none','menu_layer4','none');"><img src="{imgurl}lm_cms_on.gif" id="lm_cms" name="lm_cms" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_on.gif');changeDisplay('menu_layer1','none','menu_layer2','none','menu_layer3','inline','menu_layer4','none')"><img src="{imgurl}lm_system_off.gif" id="lm_system" name="lm_system" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_on.gif');changeDisplay('menu_layer1','none','menu_layer2','none','menu_layer3','none','menu_layer4','inline')"><img src="{imgurl}lm_util_off.gif" id="lm_util" name="lm_util" border="0" height="65" width="19"></a>
+                </td>
+                <td width="3"><img src="{imgurl}spacer.gif" border="0" height="2" width="1"></td>
+              </tr>
+              
+               <tr>
+                <td align="center" background="{imgurl}lm_bg.gif"><a class="smallblack" target="_top" href="{skurl}modules/sk/admin/">Hauptmenue</a></td>
+                <td><img src="{imgurl}spacer.gif" border="0" height="15" width="1"></td>
+              </tr>
+              <tr> 
+                <td colspan="2"><img src="{imgurl}lm_bottom.gif" border="0" height="6" width="101"></td>
+                <td><img src="{imgurl}spacer.gif" border="0" height="1" width="1"></td>
+              </tr>
+    </table>
+            </div><!-- //CMS -->  
+            <!-- System -->
+             <div id="menu_layer3" style="position: relative; z-index: 8; display:{vis3};">
+         <table border="0" cellpadding="0" cellspacing="0" width="106" >
+              <tr>
+                <td width="81" align="center" background="{imgurl}lm_bg.gif" >
+                {sysmenu}
+        <br>
+                <img src="{imgurl}spacer.gif" border="0" height="1" width="82">             </td>
+                <td rowspan="2" background="{imgurl}lm_r_bg.gif" valign="top" width="22" align="left">
+                <a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_on.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_off.gif');changeDisplay('menu_layer1','inline','menu_layer2','none','menu_layer3','none','menu_layer4','none');"><img src="{imgurl}lm_module_off.gif" id="lm_module" name="lm_module" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_on.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_off.gif');changeDisplay('menu_layer1','none','menu_layer2','inline','menu_layer3','none','menu_layer4','none');"><img src="{imgurl}lm_cms_off.gif" id="lm_cms" name="lm_cms" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_on.gif');changeDisplay('menu_layer1','none','menu_layer2','none','menu_layer3','inline','menu_layer4','none')"><img src="{imgurl}lm_system_on.gif" id="lm_system" name="lm_system" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_on.gif');changeDisplay('menu_layer1','none','menu_layer2','none','menu_layer3','none','menu_layer4','inline')"><img src="{imgurl}lm_util_off.gif" id="lm_util" name="lm_util" border="0" height="65" width="19"></a>
+                </td>
+                <td width="3"><img src="{imgurl}spacer.gif" border="0" height="2" width="1"></td>
+              </tr>
+              
+               <tr>
+                <td align="center" background="{imgurl}lm_bg.gif"><a class="smallblack" target="_top" href="{skurl}modules/sk/admin/">Hauptmenue</a></td>
+                <td><img src="{imgurl}spacer.gif" border="0" height="15" width="1"></td>
+              </tr>
+              <tr> 
+                <td colspan="2"><img src="{imgurl}lm_bottom.gif" border="0" height="6" width="101"></td>
+                <td><img src="{imgurl}spacer.gif" border="0" height="1" width="1"></td>
+              </tr>
+    </table>
+            </div><!-- //System --> 
+            <!-- Utilities -->
+             <div id="menu_layer4" style="position: relative; z-index: 8; display:{vis4};">
+         <table border="0" cellpadding="0" cellspacing="0" width="106" >
+              <tr>
+                <td width="81" align="center" background="{imgurl}lm_bg.gif" >
+                {utilmenu}
+        <br>
+                <img src="{imgurl}spacer.gif" border="0" height="1" width="82">             </td>
+                <td rowspan="2" background="{imgurl}lm_r_bg.gif" valign="top" width="22" align="left">
+                <a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_on.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_off.gif');changeDisplay('menu_layer1','inline','menu_layer2','none','menu_layer3','none','menu_layer4','none');"><img src="{imgurl}lm_module_off.gif" id="lm_module" name="lm_module" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_on.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_off.gif');changeDisplay('menu_layer1','none','menu_layer2','inline','menu_layer3','none','menu_layer4','none');"><img src="{imgurl}lm_cms_off.gif" id="lm_cms" name="lm_cms" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_on.gif');changeDisplay('menu_layer1','none','menu_layer2','none','menu_layer3','inline','menu_layer4','none')"><img src="{imgurl}lm_system_off.gif" id="lm_system" name="lm_system" border="0" height="65" width="19"></a><a href="javascript:;" id="admmenu" onclick="changeSrc('lm_module','{imgurl}lm_module_off.gif','lm_cms','{imgurl}lm_cms_off.gif','lm_system','{imgurl}lm_system_off.gif','lm_util','{imgurl}lm_util_on.gif');changeDisplay('menu_layer1','none','menu_layer2','none','menu_layer3','none','menu_layer4','inline')"><img src="{imgurl}lm_util_on.gif" id="lm_util" name="lm_util" border="0" height="65" width="19"></a>
+                </td>
+                <td width="3"><img src="{imgurl}spacer.gif" border="0" height="2" width="1"></td>
+              </tr>
+              
+               <tr>
+                <td align="center" background="{imgurl}lm_bg.gif"><a class="smallblack" target="_top" href="{skurl}modules/sk/admin/">Hauptmenue</a></td>
+                <td><img src="{imgurl}spacer.gif" border="0" height="15" width="1"></td>
+              </tr>
+              <tr> 
+                <td colspan="2"><img src="{imgurl}lm_bottom.gif" border="0" height="6" width="101"></td>
+                <td><img src="{imgurl}spacer.gif" border="0" height="1" width="1"></td>
+              </tr>
+    </table>
+            </div><!-- //Utilities --> 
+              <!-- ************ //Layers **************** -->
+</div> <!-- menubar_layer--> 
+</div><!--menubarmenu1-->

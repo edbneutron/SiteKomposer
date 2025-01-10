@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gallery galleryname="Gallery name" layout="3" popuplink="1" smoothscroll="1"
+         picbgcolor="0xffffff" bgcolor="0xffffff" pnlcolor="0xeeeeee" thumbloadbarcolor="0x666666" captionbgcolor="0xffffff" captioncolor="0x333333" titlecolor="0xffffff" pagebtncolor="0xffffff"
+         animpagebtns="1" showcaption="1" showselected="1" selectioncolor="0xff0000" roundrect="1" roundpix="4"
+         showprintbtn="1" loadthumbsatonce="0" thumbloaddelay="150"
+         drawshadows="1" shadowwidth="4" shadowcolor="0x00000" shadowalpha="15" imgtransition="2">
+	 
+<LOOP NAME="mgallery_items">
+<image thumb="{site_url}content/image/thumbnails/{file}">{site_url}content/image/{file}</image>
+        <captiontext>{objtext}</captiontext>
+        <imageurl popupwidth="{width}" popupheight="{height}">{site_url}content/image/{file}</imageurl>
+</LOOP NAME="mgallery_items">
+</SIMPLEVIEWER_DATA>

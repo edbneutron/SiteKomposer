@@ -1,0 +1,15 @@
+Folgende Anfrage wurde von Ihnen an uns geschickt:
+
+An/Abmeldung zum Newsletter:
+
+
+
+Anmeldung...........: {bestellen}
+Name................: {name}
+Vorname.............: {vname}
+eMail...............: {email_required}
+
+Vielen Dank!
+
+
+

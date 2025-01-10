@@ -1,0 +1,4 @@
+<? echo SK_URL;?>res/img/edit_icon.gif
+<? echo SKRES_URL."skinz/;?>res/img/edit_icon.gif
+<? echo SKRES_URL."skinz/".$GLOBALS['theme']."/buttons/edit_icon.gif
+<?echo $GLOBALS['edit_button'];?>

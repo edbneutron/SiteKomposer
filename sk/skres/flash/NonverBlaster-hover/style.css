@@ -1,0 +1,29 @@
+body {
+	font-family: Arial, serif;
+	font-size: 12px;
+	background-color: #000000;
+	color: #fff;
+}
+ul {
+	margin: 0px;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+	width: 500px;
+}
+li {
+	margin: 0px 2px 4px 0px;
+	float: left;
+}
+a {
+	background-color: #ffffff;
+	color: #000000;
+	text-decoration: none;
+}
+li a {
+	display: block;
+	padding: 4px 7px 3px 7px;
+}
+li a:hover {
+	background-color: #000;
+	color: #fff;
+}

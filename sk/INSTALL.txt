@@ -1,0 +1,42 @@
+---------------- Site Komposer* CMS-System -----------------
+
+
+Welcome to Site-Komposer CMS!
+
+This is a small Installation Info.
+
+
+1. Unpack archive to desired dir on webserver.
+2. give ALL folders under content/ write access to webserver process
+   ex.: cd content
+        chgrp apache * -R
+        chmod g+w * -R
+   if you have no rights to do this (isp,..) then you have to make 
+   the folders world writeable (yeah, i know...this sux...)
+   ex.: cd content
+        chmod o+w * -R
+2. import SQL-dump from /res/sql dir into database.
+   ex.: cd res/sql
+        mysql -u root -p mydatabase < sk_dump.sql
+3. goto http://your_url/admin
+4. log in  username: admin pw: $admin$
+5. click on the system tab of the menu, then on "Web-Sites"
+6. Rename the site to your desired name and enter the url
+7. Click on CMS tab
+8. Click on "Site-Struktur" to create the first page (Home) on your website
+9. Now you are able to edit the page.
+10. Have fun!
+
+11. Create users and groups if you need
+
+
+
+
+
+
+
+
+
+*(old name: Site-Komposer was taken by another company.....)
+
+

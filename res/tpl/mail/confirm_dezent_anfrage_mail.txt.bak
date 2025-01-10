@@ -1,0 +1,29 @@
+ßFolgende Anfrage wurde von Ihnen an die Agentur Riba, Bereich Radiästesie versendet:
+
+Name................: {vorname_required} {nachname_required}
+Email Addresse.......: {email_required}
+
+Adresse.............: {strasse}
+PLZ / Ort / Land....: {plz} / {ort} / {land}
+
+Telefon.............: {Telefon}
+
+Wohnung ca. m²......: {wohn_m2}
+Haus ca. m².........: {haus_m2}
+Grundstück ca. m²...: {grund_m2}
+
+
+AnfrageText:
+-----------------------------------------------------------------------------------------------------------
+{AnfrageText}
+-----------------------------------------------------------------------------------------------------------
+Interesse an:
+-----------------------------------------------------------------------------------------------------------
+Radiästhesiemessung komplett			{radi_all}
+Radiästhesiemessung Wasseradern			{radi_wasser}
+Radiästhesiemessung Erdstrahlen			{radi_erd}
+Radiästhesiemessung Brunnensuche	        {radi_brunnen}
+telefonischer Kontakt				{telekontakt}
+-----------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------

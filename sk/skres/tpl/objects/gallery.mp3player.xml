@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><player showDisplay="yes" showPlaylist="yes" autoStart="{autostart}"><LOOP NAME="mgallery_items">    <song path="{site_url}content/sound/{file}" title="{title} - {artist}" /></LOOP NAME="mgallery_items"></player>

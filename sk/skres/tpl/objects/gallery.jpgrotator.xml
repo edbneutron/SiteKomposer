@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jpgrotator>
+
+	<parameters>
+		<rotatetime>5</rotatetime>
+		<randomplay>true</randomplay>
+		<shownavigation>false</shownavigation>
+		<transition>bgfade</transition>
+	</parameters>
+	
+	<photos>
+	<LOOP NAME="mgallery_items">
+		<photo path="{site_url}content/image/{file}" link="" />
+	</LOOP NAME="mgallery_items">
+	</photos>
+
+</jpgrotator>
+

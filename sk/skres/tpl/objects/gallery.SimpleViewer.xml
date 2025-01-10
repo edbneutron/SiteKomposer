@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SIMPLEVIEWER_DATA maxImageDimension="800" textColor="{flash_txc}" frameColor="{flash_frc}" bgColor="{flash_bgc}" frameWidth="4" stagePadding="2" thumbnailColumns="{vcolumns}" thumbnailRows="{rows}" navPosition="{navPosition}" navDirection="LTR" title="{title}" imagePath="{site_url}{imagePath}" thumbPath="{site_url}{thumbPath}">
+<LOOP NAME="mgallery_items">
+<IMAGE>
+    <NAME>{file}</NAME>
+    <CAPTION>{objtext}</CAPTION>
+</IMAGE>
+</LOOP NAME="mgallery_items">
+</SIMPLEVIEWER_DATA>

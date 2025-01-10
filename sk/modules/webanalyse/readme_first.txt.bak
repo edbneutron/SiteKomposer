@@ -1,0 +1,71 @@
+##################################################
+#    W E B A N A L Y S E - N A N O B O D Y       #
+#                 version 1.0                    #
+##################################################
+
+##################################################
+# This software is distributted as FREE software #
+# If you apreciate it, you can click on my site  #
+# to say Thank you or make a free donation ;)    #
+# Thanks for your support                        #
+##################################################
+
+
+Connect to http://www.nanobody.net/pages/productions.php
+for more information.
+
+Upload to your server all scripts of archive.
+
+-------------
+Description
+-------------
+Web site traffic statistics tool written in PHP 4. 
+WebAnalyse doesn't use any databases, or Apache logs. 
+Its reports include Web site statistics by day, week, month, and year, referer, host, IP, browser. 
+The big advantage lies primarily in detail of each visit, you can follow the pages or articles which are visited on your site. 
+WebAnalyse can be added very easily (2 lines of code has to add) on all the pages where you wish to follow the activity.
+
+-------------
+Installation
+-------------
+4 steps :
+
+		> Upload the folder (you can rename the folder) of webanalyse on the root directory.
+		> In the folder, make a new folder named "log" with CHMOD 770 (the log file are write in this)
+		> add the 2 lines of code on each pages, with the whole beginning of the pages in you want to analyze the traffic.
+	
+			Exemple :
+				<?
+				require("../webanalyse/include/stats_main.inc");
+				$stats = new init(true, '../webanalyse/'); // 2 params. true/false for activate or not, and the path of webanalyse.
+				?>
+				
+		> access consultation page exemple :
+			http://yourwebsite/webanalyse/
+			
+that's all !
+
+-------------
+version 1.0
+-------------
+Modifications :
+	Display:
+		> New graphic display, The Maggot is Alive ! ;)
+		> Navigation improved with a small calendar.
+		> Display of Best Countries.
+	 
+	Treatment: 
+		> Management of the countries.
+		> Processing the data improved, the old version put too much time has to list the history. ("serialisation" is back) 
+		> Idem for the graph. 
+		> Better management of the total time of navigation like on the detail of navigation.
+		
+Bugs fixed:
+        > No bugs fixed.
+         
+-------------
+version b0.9
+-------------
+Bugs fixed:
+         > Slowly traitment of data.
+         > Problem with host	

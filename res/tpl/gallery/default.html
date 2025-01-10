@@ -1,0 +1,16 @@
+<!-- Gallery Template --> 
+
+<table  border="0" cellpadding="0" cellspacing="8" class="mgallery_def" align="center">
+<tr> 
+ <td height="1" colspan="{gallery_columns}" class="mgallerytitle_def">{gallery_title}</td>
+</tr>
+<tr> 
+ <td height="1" colspan="{gallery_columns}" class="mgallerydescr_def">{gallery_descr}</td>
+</tr>
+<tr>
+<LOOP NAME="mgallery_items">
+<td class="mgalleryitem_def" align="center">{object}</td>{row}
+</LOOP NAME="mgallery_items">
+</tr>
+{edit_buttons}
+</table>
